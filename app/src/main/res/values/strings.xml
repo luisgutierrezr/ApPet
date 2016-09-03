@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">ApPet</string>
+    <string-array name="especies">
+        <item>&lt;Seleccionar&gt;</item>
+        <item>Gato</item>
+        <item>Perro</item>
+        <item>Pájaro</item>
+        <item>Hamster</item>
+        <item>Conejo</item>
+        <item>Tortuga</item>
+        <item>Otro</item>
+    </string-array>
+</resources>
