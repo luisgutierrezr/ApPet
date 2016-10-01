@@ -24,12 +24,12 @@ public class Mascotas extends AppCompatActivity {
         actualizarListaMascotas();
     }
 
-    public void clickCamara(View v){
+    public void clickCamara(View v) {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(intent, TOMAR_FOTO);
     }
 
-    public void clickSeleccionarArchivo(View v){
+    public void clickSeleccionarArchivo(View v) {
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.setType("*/*");
         startActivityForResult(intent, CARGAR_ARCHIVO);
@@ -47,11 +47,11 @@ public class Mascotas extends AppCompatActivity {
         }
     }
 
-    public void clickGuardarCambios(View v){
+    public void clickGuardarCambios(View v) {
         Toast.makeText(this, "Se guardarán los cambios...", Toast.LENGTH_LONG).show();
     }
 
-    public void clickCancelar(View v){
+    public void clickCancelar(View v) {
         finish();
     }
 
@@ -62,8 +62,8 @@ public class Mascotas extends AppCompatActivity {
         dropdown.setAdapter(adapter);
     }
 
-    private void actualizarListaMascotas(){
-        Spinner dropdown = (Spinner)findViewById(R.id.spMascotas);
+    private void actualizarListaMascotas() {
+        Spinner dropdown = (Spinner) findViewById(R.id.spMascotas);
         String[] items = new String[]{"Mascota 1", "Mascota 2", "Mascota 3"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items);
         dropdown.setAdapter(adapter);

@@ -1,48 +1,46 @@
 package co.edu.uan.appet;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.Toast;
+
+import co.edu.uan.appet.DB.ApPetDB;
 
 public class Inicio extends AppCompatActivity {
+
+    private ApPetDB apPetDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
+        apPetDB = ApPetDB.getDB(this);
+        Log.i("ApPetDB", "onCreate de inicio, apPetDB.toString():"+ apPetDB.toString());
     }
-    public void click(View v){
-        Class clase=null;
-        switch (v.getId()){
+
+    public void click(View v) {
+        Class clase = null;
+        switch (v.getId()) {
             case R.id.ibUsuario:
-                clase=Usuario.class;
+                clase = Usuario.class;
+                break;
+            case R.id.ibMascotas:
+                clase = Mascotas.class;
+                break;
+            case R.id.ibEventos:
+                clase = Eventos.class;
+                break;
+            case R.id.ibMapa:
+                clase = Mapa.class;
+                break;
+            case R.id.ibBlog:
+                clase = Blog.class;
                 break;
         }
         Intent intent = new Intent(this, clase);
         startActivity(intent);
     }
 
-    public void clickUsuario(View v){
-        Intent intent = new Intent(this, Usuario.class);
-        startActivity(intent);
-    }
-    public void clickMascotas(View v){
-        Intent intent = new Intent(this, Mascotas.class);
-        startActivity(intent);
-    }
-    public void clickEventos(View v){
-        Intent intent = new Intent(this, Eventos.class);
-        startActivity(intent);
-    }
-    public void clickMapa(View v){
-        Intent intent = new Intent(this, Mapa.class);
-        startActivity(intent);
-    }
-    public void clickBlog(View v){
-        Intent intent = new Intent(this, Blog.class);
-        startActivity(intent);
-    }
 }

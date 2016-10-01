@@ -3,124 +3,124 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:orientation="vertical"
     tools:context="co.edu.uan.appet.Usuario">
 
     <TextView
+        android:id="@+id/txTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Usuario"
-        android:id="@+id/txTitulo"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:text="Usuario"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/ivUsuario"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:id="@+id/ivUsuario"
-            android:src="@drawable/usuario"
             android:background="#ffffff"
-            android:scaleType="fitCenter"/>
+            android:scaleType="fitCenter"
+            android:src="@drawable/usuario" />
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <ImageButton
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:scaleType="fitCenter"
                 android:id="@+id/ibCamara"
-                android:src="@drawable/camara"
-                android:onClick="clickCamara" />
-
-            <ImageButton
                 android:layout_width="70dp"
                 android:layout_height="70dp"
+                android:onClick="clickCamara"
                 android:scaleType="fitCenter"
+                android:src="@drawable/camara" />
+
+            <ImageButton
                 android:id="@+id/ibSeleccionarArchivo"
-                android:src="@drawable/archivo"
-                android:onClick="clickSeleccionarArchivo"/>
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:onClick="clickSeleccionarArchivo"
+                android:scaleType="fitCenter"
+                android:src="@drawable/archivo" />
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <TextView
+            android:id="@+id/tvNombreCompleto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Nombre completo"
-            android:id="@+id/tvNombreCompleto" />
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <EditText
+            android:id="@+id/etNombreCompleto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
             android:ems="15"
-            android:id="@+id/etNombreCompleto" />
+            android:inputType="textPersonName" />
 
         <TextView
+            android:id="@+id/tvCorreoElectronico"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Correo electrónico"
-            android:id="@+id/tvCorreoElectronico" />
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <EditText
+            android:id="@+id/etCorreoElectronico"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
             android:ems="15"
-            android:id="@+id/etCorreoElectronico" />
+            android:inputType="textEmailAddress" />
 
         <TextView
+            android:id="@+id/tvNumeroTelefonico"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Número telefónico"
-            android:id="@+id/tvNumeroTelefonico" />
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <EditText
+            android:id="@+id/ettvNumeroTelefonico"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="phone"
             android:ems="12"
-            android:id="@+id/ettvNumeroTelefonico" />
+            android:inputType="phone" />
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal">
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
 
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Guardar cambios"
                 android:id="@+id/btGuardarCambios"
-                android:onClick="clickGuardarCambios"/>
-
-            <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cancelar"
+                android:onClick="clickGuardarCambios"
+                android:text="Guardar cambios" />
+
+            <Button
                 android:id="@+id/btCancelar"
-                android:onClick="clickCancelar"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="clickCancelar"
+                android:text="Cancelar" />
         </LinearLayout>
     </LinearLayout>
 

@@ -10,4 +10,5 @@
         <item>Tortuga</item>
         <item>Otro</item>
     </string-array>
+    <string name="title_activity_mapa">Mapa</string>
 </resources>

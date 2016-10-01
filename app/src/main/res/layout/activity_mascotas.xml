@@ -3,145 +3,145 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:orientation="vertical"
     tools:context="co.edu.uan.appet.Mascotas">
 
     <TextView
+        android:id="@+id/txTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Mascotas"
-        android:id="@+id/txTitulo"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:text="Mascotas"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/ivMascota"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:id="@+id/ivMascota"
-            android:src="@drawable/mascotas"
             android:background="#ffffff"
-            android:scaleType="fitCenter"/>
+            android:scaleType="fitCenter"
+            android:src="@drawable/mascotas" />
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <ImageButton
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:scaleType="fitCenter"
                 android:id="@+id/ibCamara"
-                android:src="@drawable/camara"
-                android:onClick="clickCamara" />
-
-            <ImageButton
                 android:layout_width="70dp"
                 android:layout_height="70dp"
+                android:onClick="clickCamara"
                 android:scaleType="fitCenter"
+                android:src="@drawable/camara" />
+
+            <ImageButton
                 android:id="@+id/ibSeleccionarArchivo"
-                android:src="@drawable/archivo"
-                android:onClick="clickSeleccionarArchivo"/>
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:onClick="clickSeleccionarArchivo"
+                android:scaleType="fitCenter"
+                android:src="@drawable/archivo" />
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <TextView
+            android:id="@+id/tvNombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Nombre"
-            android:id="@+id/tvNombre" />
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <EditText
+            android:id="@+id/etNombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
             android:ems="15"
-            android:id="@+id/etNombre" />
+            android:inputType="textPersonName" />
 
         <TextView
+            android:id="@+id/tvEspecie"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Especie"
-            android:id="@+id/tvEspecie" />
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <Spinner
+            android:id="@+id/spEspecie"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/spEspecie"
             android:entries="@array/especies"
             android:spinnerMode="dropdown" />
 
         <TextView
+            android:id="@+id/tvRaza"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Raza"
-            android:id="@+id/tvRaza" />
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
 
         <Spinner
+            android:id="@+id/spRaza"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/spRaza" />
+            android:layout_height="wrap_content" />
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal">
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal">
 
                 <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Guardar cambios"
                     android:id="@+id/btGuardarCambios"
-                    android:onClick="clickGuardarCambios"/>
-
-                <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cancelar"
+                    android:onClick="clickGuardarCambios"
+                    android:text="Guardar cambios" />
+
+                <Button
                     android:id="@+id/btCancelar"
-                    android:onClick="clickCancelar"/>
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="clickCancelar"
+                    android:text="Cancelar" />
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
                 <Button
+                    android:id="@+id/btAgregarOtraMascota"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Agregar otra mascota"
-                    android:id="@+id/btAgregarOtraMascota" />
+                    android:text="Agregar otra mascota" />
 
                 <Spinner
+                    android:id="@+id/spMascotas"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/spMascotas" />
+                    android:layout_height="wrap_content" />
             </LinearLayout>
         </LinearLayout>
 

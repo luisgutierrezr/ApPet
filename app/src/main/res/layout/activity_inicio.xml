@@ -3,25 +3,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:orientation="vertical"
     tools:context="co.edu.uan.appet.Inicio">
 
     <TextView
+        android:id="@+id/txTitulo"
         android:layout_width="350dp"
         android:layout_height="90dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="ApPet"
-        android:id="@+id/txTitulo"
+        android:textAlignment="center"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#2c34a2"
+        android:textIsSelectable="false"
         android:textSize="60dp"
         android:textStyle="bold|italic"
-        android:typeface="sans"
-        android:textIsSelectable="false"
-        android:textAlignment="center" />
+        android:typeface="sans" />
 
     <GridLayout
         android:layout_width="match_parent"
@@ -30,50 +30,50 @@
         android:rowCount="3">
 
         <ImageButton
-            android:layout_width="165dp"
-            android:layout_height="125dp"
             android:id="@+id/ibUsuario"
-            android:src="@drawable/usuario"
-            android:onClick="clickUsuario"
-            android:scaleType="fitCenter"
-            android:background="#26c6da" />
-
-        <ImageButton
             android:layout_width="165dp"
             android:layout_height="125dp"
+            android:background="#26c6da"
+            android:onClick="click"
+            android:scaleType="fitCenter"
+            android:src="@drawable/usuario" />
+
+        <ImageButton
             android:id="@+id/ibMascotas"
-            android:src="@drawable/mascotas"
-            android:onClick="clickMascotas"
-            android:scaleType="fitCenter"
-            android:background="#26c6da" />
-
-        <ImageButton
             android:layout_width="165dp"
             android:layout_height="125dp"
+            android:background="#26c6da"
+            android:onClick="click"
+            android:scaleType="fitCenter"
+            android:src="@drawable/mascotas" />
+
+        <ImageButton
             android:id="@+id/ibEventos"
-            android:src="@drawable/eventos"
-            android:onClick="clickEventos"
-            android:scaleType="fitCenter"
-            android:background="#26c6da" />
-
-        <ImageButton
             android:layout_width="165dp"
             android:layout_height="125dp"
-            android:id="@+id/ibMapa"
-            android:src="@drawable/mapa"
-            android:onClick="clickMapa"
+            android:background="#26c6da"
+            android:onClick="click"
             android:scaleType="fitCenter"
-            android:background="#26c6da" />
+            android:src="@drawable/eventos" />
 
         <ImageButton
+            android:id="@+id/ibMapa"
+            android:layout_width="165dp"
+            android:layout_height="125dp"
+            android:background="#26c6da"
+            android:onClick="click"
+            android:scaleType="fitCenter"
+            android:src="@drawable/mapa" />
+
+        <ImageButton
+            android:id="@+id/ibBlog"
             android:layout_width="330dp"
             android:layout_height="125dp"
             android:layout_columnSpan="2"
-            android:id="@+id/ibBlog"
-            android:src="@drawable/blog"
-            android:onClick="clickBlog"
+            android:background="#26c6da"
+            android:onClick="click"
             android:scaleType="fitCenter"
-            android:background="#26c6da" />
+            android:src="@drawable/blog" />
 
     </GridLayout>
 </LinearLayout>
