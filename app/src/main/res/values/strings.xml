@@ -11,4 +11,18 @@
         <item>Otro</item>
     </string-array>
     <string name="title_activity_mapa">Mapa</string>
+    <string-array name="eventos">
+        <item>Evento 1</item>
+        <item>Evento 2</item>
+        <item>Evento 3</item>
+        <item>Evento 4</item>
+        <item>Evento 5</item>
+        <item>Evento 6</item>
+    </string-array>
+    <string-array name="tiposDeEvento">
+        <item>Vacunación</item>
+        <item>Desparazitación</item>
+        <item>Esterilización</item>
+        <item>Otro</item>
+    </string-array>
 </resources>

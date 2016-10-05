@@ -19,4 +19,14 @@
         android:text="Eventos"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lvEventos"
+        android:layout_gravity="center_horizontal"
+        android:clickable="true"
+        android:entries="@array/eventos"
+         />
+
+
 </LinearLayout>
