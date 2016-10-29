@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 public class Eventos extends AppCompatActivity {
 
@@ -29,7 +28,7 @@ public class Eventos extends AppCompatActivity {
 
     }
 
-    public void editarEvento(View v){
+    public void editarEvento(View view) {
         Intent intent = new Intent(this, Evento.class);
         startActivity(intent);
     }

@@ -52,12 +52,14 @@
                 android:onClick="clickSeleccionarArchivo"
                 android:scaleType="fitCenter"
                 android:src="@drawable/archivo" />
+
         </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <TextView
@@ -74,76 +76,79 @@
             android:ems="15"
             android:inputType="textPersonName" />
 
-        <TextView
-            android:id="@+id/tvEspecie"
-            android:layout_width="wrap_content"
+        <GridLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Especie"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:columnCount="2"
+            android:rowCount="2">
+
+            <TextView
+                android:id="@+id/tvEspecie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Especie"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/tvRaza"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Raza"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <Spinner
+                android:id="@+id/spEspecie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:spinnerMode="dropdown" />
+
+            <Spinner
+                android:id="@+id/spRaza"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </GridLayout>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="2">
+
+            <Button
+                android:id="@+id/btGuardarCambios"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="clickGuardarCambios"
+                android:text="Guardar cambios" />
+
+            <Button
+                android:id="@+id/btCancelar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="clickCancelar"
+                android:text="Cancelar" />
+
+            <Button
+                android:id="@+id/btAgregarOtraMascota"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Agregar otra masc."
+                android:onClick="clickAgregarOtraMascota" />
+
+            <Button
+                android:id="@+id/btRemoverMascota"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Remover mascota"
+                android:onClick="clickRemoverMascota" />
+
+        </GridLayout>
 
         <Spinner
-            android:id="@+id/spEspecie"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:entries="@array/especies"
-            android:spinnerMode="dropdown" />
-
-        <TextView
-            android:id="@+id/tvRaza"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Raza"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-
-
-        <Spinner
-            android:id="@+id/spRaza"
+            android:id="@+id/spMascotas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/btGuardarCambios"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="clickGuardarCambios"
-                    android:text="Guardar cambios" />
-
-                <Button
-                    android:id="@+id/btCancelar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="clickCancelar"
-                    android:text="Cancelar" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/btAgregarOtraMascota"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Agregar otra mascota" />
-
-                <Spinner
-                    android:id="@+id/spMascotas"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-        </LinearLayout>
 
     </LinearLayout>
 

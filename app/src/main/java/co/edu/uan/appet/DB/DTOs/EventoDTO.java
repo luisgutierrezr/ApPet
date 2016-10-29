@@ -1,4 +1,4 @@
-package co.edu.uan.appet.DB.DOs;
+package co.edu.uan.appet.DB.DTOs;
 
 import android.location.Location;
 
@@ -7,11 +7,11 @@ import java.util.Date;
 /**
  * Created by Luis Alberto on 10/09/2016.
  */
-public class Evento {
+public class EventoDTO {
     private int id;
     private String evento;
-    private TipoDeEvento tipo;
-    private EstadoDeEvento estado;
+    private TipoDeEventoDTO tipo;
+    private EstadoDeEventoDTO estado;
     private boolean todoElDia;
     private Date fechaYHoraDeInicio;
     private Date fechaYHoraDeFin;
@@ -33,19 +33,19 @@ public class Evento {
         this.evento = evento;
     }
 
-    public TipoDeEvento getTipo() {
+    public TipoDeEventoDTO getTipo() {
         return tipo;
     }
 
-    public void setTipo(TipoDeEvento tipo) {
+    public void setTipo(TipoDeEventoDTO tipo) {
         this.tipo = tipo;
     }
 
-    public EstadoDeEvento getEstado() {
+    public EstadoDeEventoDTO getEstado() {
         return estado;
     }
 
-    public void setEstado(EstadoDeEvento estado) {
+    public void setEstado(EstadoDeEventoDTO estado) {
         this.estado = estado;
     }
 

@@ -1,9 +1,9 @@
-package co.edu.uan.appet.DB.DOs;
+package co.edu.uan.appet.DB.DTOs;
 
 /**
  * Created by Luis Alberto on 10/09/2016.
  */
-public class Usuario {
+public class UsuarioDTO {
     private int id;
     private String nombreCompleto;
     private String correoElectronico;

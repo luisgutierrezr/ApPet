@@ -3,26 +3,23 @@ package co.edu.uan.appet;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 
 import co.edu.uan.appet.DB.ApPetDB;
 
 public class Inicio extends AppCompatActivity {
 
-    private ApPetDB apPetDB;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
-        apPetDB = ApPetDB.getDB(this);
-        Log.i("ApPetDB", "onCreate de inicio, apPetDB.toString():"+ apPetDB.toString());
+        ApPetDB apPetDB = ApPetDB.getInstance(getApplicationContext());
+        apPetDB.getReadableDatabase();
     }
 
-    public void click(View v) {
+    public void click(View view) {
         Class clase = null;
-        switch (v.getId()) {
+        switch (view.getId()) {
             case R.id.ibUsuario:
                 clase = Usuario.class;
                 break;

@@ -1,15 +1,5 @@
 <resources>
     <string name="app_name">ApPet</string>
-    <string-array name="especies">
-        <item>&lt;Seleccionar&gt;</item>
-        <item>Gato</item>
-        <item>Perro</item>
-        <item>Pájaro</item>
-        <item>Hamster</item>
-        <item>Conejo</item>
-        <item>Tortuga</item>
-        <item>Otro</item>
-    </string-array>
     <string name="title_activity_mapa">Mapa</string>
     <string-array name="eventos">
         <item>Evento 1</item>

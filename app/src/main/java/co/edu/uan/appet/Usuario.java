@@ -6,8 +6,12 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import co.edu.uan.appet.DB.DAOs.UsuariosDAO;
+import co.edu.uan.appet.DB.DTOs.UsuarioDTO;
 
 public class Usuario extends AppCompatActivity {
 
@@ -18,14 +22,32 @@ public class Usuario extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_usuario);
+        cargarUsuario();
     }
 
-    public void clickCamara(View v) {
+    private void cargarUsuario() {
+        UsuariosDAO usuariosDAO = UsuariosDAO.getInstance();
+        UsuarioDTO usuarioDTO = usuariosDAO.getUsuario(1);
+        EditText etNombreCompleto = (EditText) findViewById(R.id.etNombreCompleto);
+        if (etNombreCompleto != null) {
+            etNombreCompleto.setText(usuarioDTO.getNombreCompleto());
+        }
+        EditText etCorreoElectronico = (EditText) findViewById(R.id.etCorreoElectronico);
+        if (etCorreoElectronico != null) {
+            etCorreoElectronico.setText(usuarioDTO.getCorreoElectronico());
+        }
+        EditText etNumeroTelefonico = (EditText) findViewById(R.id.etNumeroTelefonico);
+        if (etNumeroTelefonico != null) {
+            etNumeroTelefonico.setText(usuarioDTO.getNumeroTelefonico());
+        }
+    }
+
+    public void clickCamara(View view) {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(intent, TOMAR_FOTO);
     }
 
-    public void clickSeleccionarArchivo(View v) {
+    public void clickSeleccionarArchivo(View view) {
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.setType("*/*");
         startActivityForResult(intent, CARGAR_ARCHIVO);
@@ -43,11 +65,27 @@ public class Usuario extends AppCompatActivity {
         }
     }
 
-    public void clickGuardarCambios(View v) {
-        Toast.makeText(this, "Se guardarán los cambios...", Toast.LENGTH_LONG).show();
+    public void clickGuardarCambios(View view) {
+        UsuariosDAO usuariosDAO = UsuariosDAO.getInstance();
+        UsuarioDTO usuarioDTO = new UsuarioDTO();
+        usuarioDTO.setId(1);
+        EditText etNombreCompleto = (EditText) findViewById(R.id.etNombreCompleto);
+        if (etNombreCompleto != null) {
+            usuarioDTO.setNombreCompleto(etNombreCompleto.getText().toString());
+        }
+        EditText etCorreoElectronico = (EditText) findViewById(R.id.etCorreoElectronico);
+        if (etCorreoElectronico != null) {
+            usuarioDTO.setCorreoElectronico(etCorreoElectronico.getText().toString());
+        }
+        EditText etNumeroTelefonico = (EditText) findViewById(R.id.etNumeroTelefonico);
+        if (etNumeroTelefonico != null) {
+            usuarioDTO.setNumeroTelefonico(etNumeroTelefonico.getText().toString());
+        }
+        usuariosDAO.updateUsuario(usuarioDTO);
+        finish();
     }
 
-    public void clickCancelar(View v) {
+    public void clickCancelar(View view) {
         finish();
     }
 

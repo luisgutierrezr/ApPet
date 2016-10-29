@@ -1,9 +1,9 @@
-package co.edu.uan.appet.DB.DOs;
+package co.edu.uan.appet.DB.DTOs;
 
 /**
  * Created by Luis Alberto on 10/09/2016.
  */
-public class TipoDeEvento {
+public class TipoDeEventoDTO {
     private int id;
     private String tipo;
 

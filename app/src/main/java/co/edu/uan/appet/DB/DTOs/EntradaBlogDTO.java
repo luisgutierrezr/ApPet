@@ -1,14 +1,14 @@
-package co.edu.uan.appet.DB.DOs;
+package co.edu.uan.appet.DB.DTOs;
 
 import java.util.Date;
 
 /**
  * Created by Luis Alberto on 10/09/2016.
  */
-public class EntradaBlog {
+public class EntradaBlogDTO {
     private int id;
-    private EntradaBlog padre;
-    private Usuario usuario;
+    private EntradaBlogDTO padre;
+    private UsuarioDTO usuarioDTO;
     private Date fechaYHora;
     private String entrada;
 
@@ -20,20 +20,20 @@ public class EntradaBlog {
         this.id = id;
     }
 
-    public EntradaBlog getPadre() {
+    public EntradaBlogDTO getPadre() {
         return padre;
     }
 
-    public void setPadre(EntradaBlog padre) {
+    public void setPadre(EntradaBlogDTO padre) {
         this.padre = padre;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public UsuarioDTO getUsuarioDTO() {
+        return usuarioDTO;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUsuarioDTO(UsuarioDTO usuarioDTO) {
+        this.usuarioDTO = usuarioDTO;
     }
 
     public Date getFechaYHora() {

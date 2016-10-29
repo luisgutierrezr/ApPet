@@ -1,17 +1,17 @@
-package co.edu.uan.appet.DB.DOs;
+package co.edu.uan.appet.DB.DTOs;
 
 import java.util.Date;
 
 /**
  * Created by Luis Alberto on 10/09/2016.
  */
-public class Mascota {
+public class MascotaDTO {
     private int id;
-    private Usuario propietario;
+    private int propietario;
     private String nombre;
     private Date fechaDeNacimiento;
-    private Especie especie;
-    private Raza raza;
+    private int especie;
+    private int raza;
 
     public int getId() {
         return id;
@@ -21,11 +21,11 @@ public class Mascota {
         this.id = id;
     }
 
-    public Usuario getPropietario() {
+    public int getPropietario() {
         return propietario;
     }
 
-    public void setPropietario(Usuario propietario) {
+    public void setPropietario(int propietario) {
         this.propietario = propietario;
     }
 
@@ -45,19 +45,19 @@ public class Mascota {
         this.fechaDeNacimiento = fechaDeNacimiento;
     }
 
-    public Especie getEspecie() {
+    public int getEspecie() {
         return especie;
     }
 
-    public void setEspecie(Especie especie) {
+    public void setEspecie(int especie) {
         this.especie = especie;
     }
 
-    public Raza getRaza() {
+    public int getRaza() {
         return raza;
     }
 
-    public void setRaza(Raza raza) {
+    public void setRaza(int raza) {
         this.raza = raza;
     }
 }
