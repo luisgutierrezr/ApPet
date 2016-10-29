@@ -38,9 +38,9 @@ public class Mascotas extends AppCompatActivity {
         actualizarListaMascotas();
         actualizarListaEspecies();
         especieEnListaRazas = -1;
-//        actualizarListaRazas(0);
-//        idMascota = 1;
-//        cargarMascota();
+        actualizarListaRazas(0);
+        idMascota = 1;
+        cargarMascota();
     }
 
     private void cargarMascota() {
