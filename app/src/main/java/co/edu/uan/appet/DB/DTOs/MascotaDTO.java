@@ -2,9 +2,6 @@ package co.edu.uan.appet.DB.DTOs;
 
 import java.util.Date;
 
-/**
- * Created by Luis Alberto on 10/09/2016.
- */
 public class MascotaDTO {
     private int id;
     private int propietario;
@@ -59,5 +56,10 @@ public class MascotaDTO {
 
     public void setRaza(int raza) {
         this.raza = raza;
+    }
+
+    @Override
+    public String toString() {
+        return nombre;
     }
 }

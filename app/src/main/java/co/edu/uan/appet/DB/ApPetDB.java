@@ -8,10 +8,12 @@ import android.util.Log;
 
 import java.util.List;
 
+import co.edu.uan.appet.DB.DAOs.ConsecutivosDAO;
 import co.edu.uan.appet.DB.DAOs.EspeciesDAO;
 import co.edu.uan.appet.DB.DAOs.MascotasDAO;
 import co.edu.uan.appet.DB.DAOs.RazasDAO;
 import co.edu.uan.appet.DB.DAOs.UsuariosDAO;
+import co.edu.uan.appet.DB.DTOs.ConsecutivoDTO;
 import co.edu.uan.appet.DB.DTOs.EspecieDTO;
 import co.edu.uan.appet.DB.DTOs.MascotaDTO;
 import co.edu.uan.appet.DB.DTOs.RazaDTO;
@@ -22,7 +24,7 @@ public class ApPetDB extends SQLiteOpenHelper {
     private static ApPetDB apPetDB;
 
     private static final String NOMBRE_BASE_DE_DATOS = "ApPetDB.db";
-    private static final int VERSION_BASE_DE_DATOS = 2;
+    private static final int VERSION_BASE_DE_DATOS = 1;
 
     public static ApPetDB getInstance(Context context) {
         if (apPetDB == null)
@@ -40,6 +42,8 @@ public class ApPetDB extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + ConsecutivosDAO.getNombreTabla());
+        sqLiteDatabase.execSQL(ConsecutivosDAO.getSqlCrearTabla());
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + UsuariosDAO.getNombreTabla());
         sqLiteDatabase.execSQL(UsuariosDAO.getSqlCrearTabla());
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + EspeciesDAO.getNombreTabla());
@@ -52,6 +56,7 @@ public class ApPetDB extends SQLiteOpenHelper {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
+                agregarConsecutivos();
                 agregarUsuarioInicial();
                 agregarEspecies();
                 agregarRazas();
@@ -59,6 +64,11 @@ public class ApPetDB extends SQLiteOpenHelper {
                 //test();
             }
         }, 500);
+    }
+
+    private void agregarConsecutivos() {
+        ConsecutivosDAO consecutivosDAO = ConsecutivosDAO.getInstance();
+        consecutivosDAO.addConsecutivo(new ConsecutivoDTO(MascotasDAO.getNombreTabla(), 0));
     }
 
     private void agregarUsuarioInicial() {
@@ -147,11 +157,12 @@ public class ApPetDB extends SQLiteOpenHelper {
     private void agregarMascotaInicial() {
         MascotasDAO mascotasDAO = MascotasDAO.getInstance();
         MascotaDTO mascotaDTO = new MascotaDTO();
-        mascotaDTO.setId(1);
+        ConsecutivosDAO consecutivosDAO = ConsecutivosDAO.getInstance();
+        mascotaDTO.setId(consecutivosDAO.getConsecutivoParaTabla(MascotasDAO.getNombreTabla()));
         mascotaDTO.setPropietario(1);
         mascotaDTO.setNombre("Nombre de la mascota");
-        mascotaDTO.setEspecie(1);
-        mascotaDTO.setRaza(1);
+        mascotaDTO.setEspecie(0);
+        mascotaDTO.setRaza(0);
         mascotasDAO.addMascota(mascotaDTO);
     }
 

@@ -1,7 +1,7 @@
 package co.edu.uan.appet;
 
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -46,5 +46,7 @@ public class Mapa extends FragmentActivity implements OnMapReadyCallback {
         mMap.addMarker(new MarkerOptions().position(uAntonioNarino).title("Universidad Antonio Nariño"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(uAntonioNarino));
         mMap.moveCamera(CameraUpdateFactory.zoomTo(18));
+
+
     }
 }

@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import co.edu.uan.appet.DB.DAOs.ConsecutivosDAO;
 import co.edu.uan.appet.DB.DAOs.EspeciesDAO;
 import co.edu.uan.appet.DB.DAOs.MascotasDAO;
 import co.edu.uan.appet.DB.DAOs.RazasDAO;
@@ -100,10 +101,29 @@ public class Mascotas extends AppCompatActivity {
     }
 
     private void actualizarListaMascotas() {
-        Spinner dropdown = (Spinner) findViewById(R.id.spMascotas);
-        String[] items = new String[]{"Mascota 1", "Mascota 2", "Mascota 3"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
-        dropdown.setAdapter(adapter);
+        MascotasDAO mascotasDAO = MascotasDAO.getInstance();
+        List<MascotaDTO> mascotaDTOs = mascotasDAO.getAllMascotas();
+        ArrayAdapter<MascotaDTO> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, mascotaDTOs);
+        Spinner spMascotas = (Spinner) findViewById(R.id.spMascotas);
+        if (spMascotas != null) {
+            spMascotas.setAdapter(arrayAdapter);
+            spMascotas.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                                                     @Override
+                                                     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                                                         MascotaDTO mascotaDTO = (MascotaDTO) adapterView.getSelectedItem();
+                                                         if (idMascota != mascotaDTO.getId()) {
+                                                             idMascota = mascotaDTO.getId();
+                                                             cargarMascota();
+                                                         }
+                                                     }
+
+                                                     @Override
+                                                     public void onNothingSelected(AdapterView<?> adapterView) {
+                                                         Log.i("ApPet", "onNothingSelected");
+                                                     }
+                                                 }
+            );
+        }
     }
 
     private void actualizarListaEspecies() {
@@ -119,13 +139,11 @@ public class Mascotas extends AppCompatActivity {
                     EspecieDTO especieDTO = (EspecieDTO) adapterView.getSelectedItem();
                     actualizarListaRazas(especieDTO.getId());
                 }
-
                 @Override
                 public void onNothingSelected(AdapterView<?> adapterView) {
                     Log.i("ApPet", "onNothingSelected");
                 }
-                                                }
-            );
+            });
         }
     }
 
@@ -144,7 +162,6 @@ public class Mascotas extends AppCompatActivity {
                         RazaDTO razaDTO = (RazaDTO) adapterView.getSelectedItem();
                         razaEnListaRazas = razaDTO.getId();
                     }
-
                     @Override
                     public void onNothingSelected(AdapterView<?> adapterView) {
                         Log.i("ApPet", "onNothingSelected");
@@ -155,6 +172,11 @@ public class Mascotas extends AppCompatActivity {
     }
 
     public void clickGuardarCambios(View view) {
+        guardarCambios();
+        finish();
+    }
+
+    private void guardarCambios() {
         MascotasDAO mascotasDAO = MascotasDAO.getInstance();
         MascotaDTO mascotaDTO = new MascotaDTO();
         mascotaDTO.setId(idMascota);
@@ -162,11 +184,12 @@ public class Mascotas extends AppCompatActivity {
         EditText etNombre = (EditText) findViewById(R.id.etNombre);
         if (etNombre != null) {
             mascotaDTO.setNombre(etNombre.getText().toString());
+        } else {
+            mascotaDTO.setNombre("");
         }
         mascotaDTO.setEspecie(especieEnListaRazas);
         mascotaDTO.setRaza(razaEnListaRazas);
         mascotasDAO.updateMascota(mascotaDTO);
-        finish();
     }
 
     public void clickCancelar(View view) {
@@ -174,9 +197,25 @@ public class Mascotas extends AppCompatActivity {
     }
 
     public void clickAgregarOtraMascota(View view) {
+        guardarCambios();
+        MascotasDAO mascotasDAO = MascotasDAO.getInstance();
+        MascotaDTO mascotaDTO = new MascotaDTO();
+        ConsecutivosDAO consecutivosDAO = ConsecutivosDAO.getInstance();
+        idMascota = consecutivosDAO.getConsecutivoParaTabla(MascotasDAO.getNombreTabla());
+        mascotaDTO.setId(idMascota);
+        mascotaDTO.setPropietario(1);
+        mascotaDTO.setNombre("Nombre de la mascota (" + idMascota + ")");
+        mascotaDTO.setEspecie(0);
+        mascotaDTO.setRaza(0);
+        mascotasDAO.addMascota(mascotaDTO);
+        cargarMascota();
+        actualizarListaMascotas();
     }
 
     public void clickRemoverMascota(View view) {
+        MascotasDAO mascotasDAO = MascotasDAO.getInstance();
+        mascotasDAO.deleteMascota(idMascota);
+        finish();
     }
 
 }

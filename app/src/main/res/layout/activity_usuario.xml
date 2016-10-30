@@ -113,6 +113,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="clickGuardarCambios"
+                android:textAllCaps="false"
                 android:text="Guardar cambios" />
 
             <Button
@@ -120,6 +121,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="clickCancelar"
+                android:textAllCaps="false"
                 android:text="Cancelar" />
         </LinearLayout>
     </LinearLayout>
