@@ -30,6 +30,7 @@ public class Mascotas extends AppCompatActivity {
     static final int CARGAR_ARCHIVO = 2;
     private int idMascota;
     private int especieEnListaRazas;
+    private int razaEnListaRazas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +69,7 @@ public class Mascotas extends AppCompatActivity {
             for (int j = 0; j < spRazaAdapter.getCount(); j++) {
                 RazaDTO razaDTO = (RazaDTO) spRazaAdapter.getItem(j);
                 if (razaDTO.getId() == mascotaDTO.getRaza()) {
-                    spRaza.setSelection(2);
+                    spRaza.setSelection(j);
                     break;
                 }
             }
@@ -101,45 +102,60 @@ public class Mascotas extends AppCompatActivity {
     private void actualizarListaMascotas() {
         Spinner dropdown = (Spinner) findViewById(R.id.spMascotas);
         String[] items = new String[]{"Mascota 1", "Mascota 2", "Mascota 3"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
         dropdown.setAdapter(adapter);
     }
 
     private void actualizarListaEspecies() {
         EspeciesDAO especiesDAO = EspeciesDAO.getInstance();
         List<EspecieDTO> especieDTOs = especiesDAO.getAllEspecies();
-        ArrayAdapter<EspecieDTO> arrayAdapter = new ArrayAdapter<EspecieDTO>(this, android.R.layout.simple_spinner_dropdown_item, especieDTOs);
+        ArrayAdapter<EspecieDTO> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, especieDTOs);
         Spinner spEspecie = (Spinner) findViewById(R.id.spEspecie);
-        spEspecie.setAdapter(arrayAdapter);
-        spEspecie.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                                                @Override
-                                                public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                                                    EspecieDTO especieDTO = (EspecieDTO) adapterView.getSelectedItem();
-                                                    actualizarListaRazas(especieDTO.getId());
-                                                }
+        if (spEspecie != null) {
+            spEspecie.setAdapter(arrayAdapter);
+            spEspecie.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                    EspecieDTO especieDTO = (EspecieDTO) adapterView.getSelectedItem();
+                    actualizarListaRazas(especieDTO.getId());
+                }
 
-                                                @Override
-                                                public void onNothingSelected(AdapterView<?> adapterView) {
-                                                    Log.i("ApPet", "onNothingSelected");
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                    Log.i("ApPet", "onNothingSelected");
+                }
                                                 }
-                                            }
-
-        );
+            );
+        }
     }
 
     private void actualizarListaRazas(int especie) {
         if (especie != especieEnListaRazas) {
             RazasDAO razasDAO = RazasDAO.getInstance();
             List<RazaDTO> razaDTOs = razasDAO.getRazasDeEspecie(especie);
-            ArrayAdapter<RazaDTO> arrayAdapter = new ArrayAdapter<RazaDTO>(this, android.R.layout.simple_spinner_dropdown_item, razaDTOs);
+            ArrayAdapter<RazaDTO> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, razaDTOs);
             Spinner spRaza = (Spinner) findViewById(R.id.spRaza);
-            spRaza.setAdapter(arrayAdapter);
-            especieEnListaRazas = especie;
+            if (spRaza != null) {
+                spRaza.setAdapter(arrayAdapter);
+                especieEnListaRazas = especie;
+                spRaza.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                        RazaDTO razaDTO = (RazaDTO) adapterView.getSelectedItem();
+                        razaEnListaRazas = razaDTO.getId();
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+                        Log.i("ApPet", "onNothingSelected");
+                    }
+                });
+            }
         }
     }
 
     public void clickGuardarCambios(View view) {
-        MascotasDAO mascotaDAO = MascotasDAO.getInstance();
+        MascotasDAO mascotasDAO = MascotasDAO.getInstance();
         MascotaDTO mascotaDTO = new MascotaDTO();
         mascotaDTO.setId(idMascota);
         mascotaDTO.setPropietario(1);
@@ -147,19 +163,10 @@ public class Mascotas extends AppCompatActivity {
         if (etNombre != null) {
             mascotaDTO.setNombre(etNombre.getText().toString());
         }
-/*        Spinner spEspecie = (Spinner) findViewById(R.id.spEspecie);
-        if (spEspecie != null) {
-            AdapterView spEspecieAdapter = (AdapterView)spEspecie.getAdapter();
-            //EspecieDTO especieDTO = (EspecieDTO) spEspecieAdapter.getSelectedItem();
-            int id1=(int) spEspecieAdapter.getSelectedItemId();
-            Log.i("ApPet",""+ id1);
-        }
-        Spinner spRaza = (Spinner) findViewById(R.id.spRaza);
-        if (spRaza != null) {
-
-        }*/
-        //mascotaDAO.updateMascota(mascotaDTO);
-        //finish();
+        mascotaDTO.setEspecie(especieEnListaRazas);
+        mascotaDTO.setRaza(razaEnListaRazas);
+        mascotasDAO.updateMascota(mascotaDTO);
+        finish();
     }
 
     public void clickCancelar(View view) {

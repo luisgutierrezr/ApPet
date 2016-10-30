@@ -11,9 +11,6 @@ import java.util.List;
 import co.edu.uan.appet.DB.ApPetDB;
 import co.edu.uan.appet.DB.DTOs.EspecieDTO;
 
-/**
- * Created by Luis Alberto on 08/10/2016.
- */
 public class EspeciesDAO {
 
     private static ApPetDB apPetDB;
@@ -85,7 +82,7 @@ public class EspeciesDAO {
 
     public List<EspecieDTO> getAllEspecies() {
         List<EspecieDTO> especieDTOs = new ArrayList<>();
-        String SQL_SELECT = String.format("SELECT * FROM %s ORdER BY ESPECIE", getNombreTabla());
+        String SQL_SELECT = String.format("SELECT * FROM %s", getNombreTabla());
         SQLiteDatabase sqLiteDatabase = apPetDB.getReadableDatabase();
         Cursor cursor = sqLiteDatabase.rawQuery(SQL_SELECT, null);
         try {

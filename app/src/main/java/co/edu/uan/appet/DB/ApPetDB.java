@@ -17,9 +17,6 @@ import co.edu.uan.appet.DB.DTOs.MascotaDTO;
 import co.edu.uan.appet.DB.DTOs.RazaDTO;
 import co.edu.uan.appet.DB.DTOs.UsuarioDTO;
 
-/**
- * Created by Luis Alberto on 07/09/2016.
- */
 public class ApPetDB extends SQLiteOpenHelper {
 
     private static ApPetDB apPetDB;
@@ -59,7 +56,7 @@ public class ApPetDB extends SQLiteOpenHelper {
                 agregarEspecies();
                 agregarRazas();
                 agregarMascotaInicial();
-                test();
+                //test();
             }
         }, 500);
     }
@@ -68,8 +65,8 @@ public class ApPetDB extends SQLiteOpenHelper {
         UsuariosDAO usuariosDAO = UsuariosDAO.getInstance();
         UsuarioDTO usuarioDTO = new UsuarioDTO();
         usuarioDTO.setId(1);
-        usuarioDTO.setNombreCompleto("Usuario inicial");
-        usuarioDTO.setCorreoElectronico("usuario@ApPet.co");
+        usuarioDTO.setNombreCompleto("Nombre del usuario");
+        usuarioDTO.setCorreoElectronico("usuario@ejemplo.com");
         usuarioDTO.setNumeroTelefonico("000-000-0000");
         usuariosDAO.addUsuario(usuarioDTO);
     }
@@ -153,8 +150,8 @@ public class ApPetDB extends SQLiteOpenHelper {
         mascotaDTO.setId(1);
         mascotaDTO.setPropietario(1);
         mascotaDTO.setNombre("Nombre de la mascota");
-        mascotaDTO.setEspecie(5);
-        mascotaDTO.setRaza(37);
+        mascotaDTO.setEspecie(1);
+        mascotaDTO.setRaza(1);
         mascotasDAO.addMascota(mascotaDTO);
     }
 
