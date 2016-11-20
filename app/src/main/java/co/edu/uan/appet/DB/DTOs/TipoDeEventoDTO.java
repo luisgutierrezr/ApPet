@@ -1,11 +1,16 @@
 package co.edu.uan.appet.DB.DTOs;
 
-/**
- * Created by Luis Alberto on 10/09/2016.
- */
 public class TipoDeEventoDTO {
     private int id;
-    private String tipo;
+    private String tipoDeEvento;
+
+    public TipoDeEventoDTO(int id, String tipoDeEvento) {
+        this.id = id;
+        this.tipoDeEvento = tipoDeEvento;
+    }
+
+    public TipoDeEventoDTO() {
+    }
 
     public int getId() {
         return id;
@@ -15,11 +20,11 @@ public class TipoDeEventoDTO {
         this.id = id;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getTipoDeEvento() {
+        return tipoDeEvento;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setTipoDeEvento(String tipoDeEvento) {
+        this.tipoDeEvento = tipoDeEvento;
     }
 }

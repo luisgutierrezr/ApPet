@@ -1,21 +1,30 @@
 package co.edu.uan.appet.DB.DTOs;
 
-import android.location.Location;
-
-import java.util.Date;
-
-/**
- * Created by Luis Alberto on 10/09/2016.
- */
 public class EventoDTO {
     private int id;
     private String evento;
-    private TipoDeEventoDTO tipo;
-    private EstadoDeEventoDTO estado;
+    private int tipo;
+    private int estado;
     private boolean todoElDia;
-    private Date fechaYHoraDeInicio;
-    private Date fechaYHoraDeFin;
-    private Location lugar;
+    private String fechaYHoraDeInicio;
+    private String fechaYHoraDeFin;
+    private double lugarLatitud;
+    private double lugarLongitud;
+
+    public EventoDTO() {
+    }
+
+    public EventoDTO(int id, String evento, int tipo, int estado, boolean todoElDia, String fechaYHoraDeInicio, String fechaYHoraDeFin, double lugarLatitud, double lugarLongitud) {
+        this.id = id;
+        this.evento = evento;
+        this.tipo = tipo;
+        this.estado = estado;
+        this.todoElDia = todoElDia;
+        this.fechaYHoraDeInicio = fechaYHoraDeInicio;
+        this.fechaYHoraDeFin = fechaYHoraDeFin;
+        this.lugarLatitud = lugarLatitud;
+        this.lugarLongitud = lugarLongitud;
+    }
 
     public int getId() {
         return id;
@@ -33,19 +42,19 @@ public class EventoDTO {
         this.evento = evento;
     }
 
-    public TipoDeEventoDTO getTipo() {
+    public int getTipo() {
         return tipo;
     }
 
-    public void setTipo(TipoDeEventoDTO tipo) {
+    public void setTipo(int tipo) {
         this.tipo = tipo;
     }
 
-    public EstadoDeEventoDTO getEstado() {
+    public int getEstado() {
         return estado;
     }
 
-    public void setEstado(EstadoDeEventoDTO estado) {
+    public void setEstado(int estado) {
         this.estado = estado;
     }
 
@@ -57,27 +66,40 @@ public class EventoDTO {
         this.todoElDia = todoElDia;
     }
 
-    public Date getFechaYHoraDeInicio() {
+    public String getFechaYHoraDeInicio() {
         return fechaYHoraDeInicio;
     }
 
-    public void setFechaYHoraDeInicio(Date fechaYHoraDeInicio) {
+    public void setFechaYHoraDeInicio(String fechaYHoraDeInicio) {
         this.fechaYHoraDeInicio = fechaYHoraDeInicio;
     }
 
-    public Date getFechaYHoraDeFin() {
+    public String getFechaYHoraDeFin() {
         return fechaYHoraDeFin;
     }
 
-    public void setFechaYHoraDeFin(Date fechaYHoraDeFin) {
+    public void setFechaYHoraDeFin(String fechaYHoraDeFin) {
         this.fechaYHoraDeFin = fechaYHoraDeFin;
     }
 
-    public Location getLugar() {
-        return lugar;
+    public double getLugarLatitud() {
+        return lugarLatitud;
     }
 
-    public void setLugar(Location lugar) {
-        this.lugar = lugar;
+    public void setLugarLatitud(double lugarLatitud) {
+        this.lugarLatitud = lugarLatitud;
+    }
+
+    public double getLugarLongitud() {
+        return lugarLongitud;
+    }
+
+    public void setLugarLongitud(double lugarLongitud) {
+        this.lugarLongitud = lugarLongitud;
+    }
+
+    @Override
+    public String toString() {
+        return evento;
     }
 }

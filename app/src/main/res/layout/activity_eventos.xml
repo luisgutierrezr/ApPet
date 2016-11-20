@@ -19,14 +19,19 @@
         android:text="Eventos"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
+    <Button
+        android:id="@+id/btAgregarEvento1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Agregar evento"
+        android:textAllCaps="false"
+        android:onClick="clickAgregarEvento" />
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/lvEventos"
         android:layout_gravity="center_horizontal"
-        android:clickable="true"
-        android:entries="@array/eventos"
-         />
-
+        android:clickable="true" />
 
 </LinearLayout>

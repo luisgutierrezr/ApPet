@@ -10,13 +10,17 @@ import java.util.List;
 
 import co.edu.uan.appet.DB.DAOs.ConsecutivosDAO;
 import co.edu.uan.appet.DB.DAOs.EspeciesDAO;
+import co.edu.uan.appet.DB.DAOs.EventosDAO;
 import co.edu.uan.appet.DB.DAOs.MascotasDAO;
 import co.edu.uan.appet.DB.DAOs.RazasDAO;
+import co.edu.uan.appet.DB.DAOs.TiposDeEventoDAO;
 import co.edu.uan.appet.DB.DAOs.UsuariosDAO;
 import co.edu.uan.appet.DB.DTOs.ConsecutivoDTO;
 import co.edu.uan.appet.DB.DTOs.EspecieDTO;
+import co.edu.uan.appet.DB.DTOs.EventoDTO;
 import co.edu.uan.appet.DB.DTOs.MascotaDTO;
 import co.edu.uan.appet.DB.DTOs.RazaDTO;
+import co.edu.uan.appet.DB.DTOs.TipoDeEventoDTO;
 import co.edu.uan.appet.DB.DTOs.UsuarioDTO;
 
 public class ApPetDB extends SQLiteOpenHelper {
@@ -52,6 +56,10 @@ public class ApPetDB extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(RazasDAO.getSqlCrearTabla());
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + MascotasDAO.getNombreTabla());
         sqLiteDatabase.execSQL(MascotasDAO.getSqlCrearTabla());
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TiposDeEventoDAO.getNombreTabla());
+        sqLiteDatabase.execSQL(TiposDeEventoDAO.getSqlCrearTabla());
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + EventosDAO.getNombreTabla());
+        sqLiteDatabase.execSQL(EventosDAO.getSqlCrearTabla());
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -61,7 +69,9 @@ public class ApPetDB extends SQLiteOpenHelper {
                 agregarEspecies();
                 agregarRazas();
                 agregarMascotaInicial();
-                //test();
+                agregarTiposDeEvento();
+                agregarEventosTest();
+                test();
             }
         }, 500);
     }
@@ -69,6 +79,7 @@ public class ApPetDB extends SQLiteOpenHelper {
     private void agregarConsecutivos() {
         ConsecutivosDAO consecutivosDAO = ConsecutivosDAO.getInstance();
         consecutivosDAO.addConsecutivo(new ConsecutivoDTO(MascotasDAO.getNombreTabla(), 0));
+        consecutivosDAO.addConsecutivo(new ConsecutivoDTO(EventosDAO.getNombreTabla(), 0));
     }
 
     private void agregarUsuarioInicial() {
@@ -166,6 +177,38 @@ public class ApPetDB extends SQLiteOpenHelper {
         mascotasDAO.addMascota(mascotaDTO);
     }
 
+    private void agregarTiposDeEvento() {
+        TiposDeEventoDAO tiposDeEventoDAO = TiposDeEventoDAO.getInstance();
+        tiposDeEventoDAO.addTipoDeEvento(new TipoDeEventoDTO(0, "<Seleccionar>"));
+        tiposDeEventoDAO.addTipoDeEvento(new TipoDeEventoDTO(1, "Vacunación"));
+        tiposDeEventoDAO.addTipoDeEvento(new TipoDeEventoDTO(2, "Desparasitación"));
+        tiposDeEventoDAO.addTipoDeEvento(new TipoDeEventoDTO(3, "Esterilización"));
+        tiposDeEventoDAO.addTipoDeEvento(new TipoDeEventoDTO(4, "Otro"));
+    }
+
+    private void agregarEventosTest() {
+        EventosDAO eventosDAO = EventosDAO.getInstance();
+        eventosDAO.addEvento(new EventoDTO(1, "Evento a", 1, 1, false, "19-11-2016 16:00", "19-11-2016 17:00", -74.0001, 4.0001));
+        eventosDAO.addEvento(new EventoDTO(2, "Evento b", 1, 1, false, "19-11-2016 16:00", "19-11-2016 17:00", -74.0001, 4.0001));
+        eventosDAO.addEvento(new EventoDTO(3, "Evento c", 1, 1, false, "19-11-2016 16:00", "19-11-2016 17:00", -74.0001, 4.0001));
+        eventosDAO.addEvento(new EventoDTO(4, "Evento d", 1, 1, false, "19-11-2016 16:00", "19-11-2016 17:00", -74.0001, 4.0001));
+        eventosDAO.addEvento(new EventoDTO(5, "Evento e", 1, 1, false, "19-11-2016 16:00", "19-11-2016 17:00", -74.0001, 4.0001));
+        eventosDAO.addEvento(new EventoDTO(6, "Evento f", 1, 1, false, "19-11-2016 16:00", "19-11-2016 17:00", -74.0001, 4.0001));
+        eventosDAO.addEvento(new EventoDTO(7, "Evento g", 1, 1, false, "19-11-2016 16:00", "19-11-2016 17:00", -74.0001, 4.0001));
+        eventosDAO.addEvento(new EventoDTO(8, "Evento h", 1, 1, false, "19-11-2016 16:00", "19-11-2016 17:00", -74.0001, 4.0001));
+        eventosDAO.addEvento(new EventoDTO(9, "Evento i", 1, 1, false, "19-11-2016 16:00", "19-11-2016 17:00", -74.0001, 4.0001));
+        eventosDAO.addEvento(new EventoDTO(10, "Evento j", 1, 1, false, "19-11-2016 16:00", "19-11-2016 17:00", -74.0001, 4.0001));
+        eventosDAO.addEvento(new EventoDTO(11, "Evento k", 1, 1, false, "19-11-2016 16:00", "19-11-2016 17:00", -74.0001, 4.0001));
+        eventosDAO.addEvento(new EventoDTO(12, "Evento l", 1, 1, false, "19-11-2016 16:00", "19-11-2016 17:00", -74.0001, 4.0001));
+        eventosDAO.addEvento(new EventoDTO(13, "Evento m", 1, 1, false, "19-11-2016 16:00", "19-11-2016 17:00", -74.0001, 4.0001));
+        eventosDAO.addEvento(new EventoDTO(14, "Evento n", 1, 1, false, "19-11-2016 16:00", "19-11-2016 17:00", -74.0001, 4.0001));
+        eventosDAO.addEvento(new EventoDTO(15, "Evento o", 1, 1, false, "19-11-2016 16:00", "19-11-2016 17:00", -74.0001, 4.0001));
+        eventosDAO.addEvento(new EventoDTO(16, "Evento p", 1, 1, false, "19-11-2016 16:00", "19-11-2016 17:00", -74.0001, 4.0001));
+        eventosDAO.addEvento(new EventoDTO(17, "Evento q", 1, 1, false, "19-11-2016 16:00", "19-11-2016 17:00", -74.0001, 4.0001));
+        eventosDAO.addEvento(new EventoDTO(18, "Evento r", 1, 1, false, "19-11-2016 16:00", "19-11-2016 17:00", -74.0001, 4.0001));
+        eventosDAO.addEvento(new EventoDTO(19, "Evento s", 1, 1, false, "19-11-2016 16:00", "19-11-2016 17:00", -74.0001, 4.0001));
+    }
+
     private void test() {
         UsuariosDAO usuariosDAO = UsuariosDAO.getInstance();
         UsuarioDTO usuarioDTO = usuariosDAO.getUsuario(1);
@@ -183,6 +226,16 @@ public class ApPetDB extends SQLiteOpenHelper {
         MascotasDAO mascotaDAO = MascotasDAO.getInstance();
         MascotaDTO mascotaDTO = mascotaDAO.getMascota(1);
         Log.i("ApPet", mascotaDTO.getId() + " | " + mascotaDTO.getPropietario() + " | " + mascotaDTO.getNombre() + " | " + mascotaDTO.getEspecie() + " | " + mascotaDTO.getRaza());
+        TiposDeEventoDAO tiposDeEventoDAO = TiposDeEventoDAO.getInstance();
+        List<TipoDeEventoDTO> tipoDeEventoDTOs = tiposDeEventoDAO.getAllTiposDeEvento();
+        for (TipoDeEventoDTO tipoDeEventoDTO : tipoDeEventoDTOs) {
+            Log.i("ApPet", tipoDeEventoDTO.getId() + " | " + tipoDeEventoDTO.getTipoDeEvento());
+        }
+        EventosDAO eventosDAO = EventosDAO.getInstance();
+        List<EventoDTO> eventoDTOs = eventosDAO.getAllEventos();
+        for (EventoDTO eventoDTO : eventoDTOs) {
+            Log.i("ApPet", eventoDTO.getId() + " | " + eventoDTO.getEvento() + " | " + eventoDTO.getTipo() + " | " + eventoDTO.getEstado());
+        }
     }
 
     @Override

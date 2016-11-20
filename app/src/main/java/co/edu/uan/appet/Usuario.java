@@ -2,13 +2,20 @@ package co.edu.uan.appet;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 
 import co.edu.uan.appet.DB.DAOs.UsuariosDAO;
 import co.edu.uan.appet.DB.DTOs.UsuarioDTO;
@@ -57,12 +64,35 @@ public class Usuario extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) switch (requestCode) {
             case TOMAR_FOTO:
-                ((ImageView) findViewById(R.id.ivUsuario)).setImageBitmap((Bitmap) data.getExtras().get("data"));
+                guardarImagenTomada(data);
                 break;
             case CARGAR_ARCHIVO:
                 Toast.makeText(this, "Se cargará el archivo...", Toast.LENGTH_LONG).show();
                 break;
         }
+    }
+
+    private void guardarImagenTomada(Intent data) {
+        //((ImageView) findViewById(R.id.ivUsuario)).setImageBitmap((Bitmap) data.getExtras().get("data"));
+        Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+        File directorio = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File archivo = new File(directorio, "UsuarioApPet.jpg");
+        OutputStream flujoDeSalida = null;
+        Log.i("ApPet", archivo.getAbsolutePath());
+        try {
+            flujoDeSalida = new FileOutputStream(archivo);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, flujoDeSalida);
+            flujoDeSalida.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Bitmap bitmapEntrada = BitmapFactory.decodeFile(archivo.getAbsolutePath());
+        ((ImageView) findViewById(R.id.ivUsuario)).setImageBitmap(bitmapEntrada);
+    }
+
+    private void establecerImagen(Intent data) {
+        File directorio = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File archivo = new File(directorio, "UsuarioApPet.jpg");
     }
 
     public void clickGuardarCambios(View view) {
