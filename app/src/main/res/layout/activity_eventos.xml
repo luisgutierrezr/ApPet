@@ -14,13 +14,11 @@
         android:id="@+id/txTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:text="Eventos"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
-        android:id="@+id/btAgregarEvento1"
+        android:id="@+id/btAgregarEvento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Agregar evento"

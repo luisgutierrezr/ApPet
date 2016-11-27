@@ -3,6 +3,7 @@ package co.edu.uan.appet;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -32,15 +33,22 @@ public class Eventos extends AppCompatActivity {
                                             View row,
                                             int index,
                                             long rowID) {
-                        editarEvento(row);
+                        editarEvento(index);
                     }
                 }
         );
-
     }
 
-    public void editarEvento(View view) {
+    public void clickAgregarEvento(View view) {
         Intent intent = new Intent(this, Evento.class);
+        intent.putExtra("id", -1);
+        startActivity(intent);
+    }
+
+    public void editarEvento(int index) {
+        Intent intent = new Intent(this, Evento.class);
+        Log.i("ApPetDB", index + "");
+        intent.putExtra("id", -1);
         startActivity(intent);
     }
 }
