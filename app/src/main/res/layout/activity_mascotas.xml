@@ -132,20 +132,20 @@
                 android:text="Cancelar" />
 
             <Button
-                android:id="@+id/btAgregarOtraMascota"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Agregar otra mascota"
-                android:textAllCaps="false"
-                android:onClick="clickAgregarOtraMascota" />
-
-            <Button
                 android:id="@+id/btRemoverMascota"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Remover mascota"
                 android:textAllCaps="false"
                 android:onClick="clickRemoverMascota" />
+
+            <Button
+                android:id="@+id/btAgregarOtraMascota"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Agregar otra mascota"
+                android:textAllCaps="false"
+                android:onClick="clickAgregarOtraMascota" />
 
             <TextView
                 android:id="@+id/tvSeleccionarMascota"

@@ -6,22 +6,24 @@ public class EventoDTO {
     private int tipo;
     private int estado;
     private boolean todoElDia;
-    private String fechaYHoraDeInicio;
-    private String fechaYHoraDeFin;
+    private String fecha;
+    private String horaDeInicio;
+    private String horaDeFin;
     private double lugarLatitud;
     private double lugarLongitud;
 
     public EventoDTO() {
     }
 
-    public EventoDTO(int id, String evento, int tipo, int estado, boolean todoElDia, String fechaYHoraDeInicio, String fechaYHoraDeFin, double lugarLatitud, double lugarLongitud) {
+    public EventoDTO(int id, String evento, int tipo, int estado, boolean todoElDia, String fecha, String horaDeInicio, String horaDeFin, double lugarLatitud, double lugarLongitud) {
         this.id = id;
         this.evento = evento;
         this.tipo = tipo;
         this.estado = estado;
         this.todoElDia = todoElDia;
-        this.fechaYHoraDeInicio = fechaYHoraDeInicio;
-        this.fechaYHoraDeFin = fechaYHoraDeFin;
+        this.fecha = fecha;
+        this.horaDeInicio = horaDeInicio;
+        this.horaDeFin = horaDeFin;
         this.lugarLatitud = lugarLatitud;
         this.lugarLongitud = lugarLongitud;
     }
@@ -66,20 +68,28 @@ public class EventoDTO {
         this.todoElDia = todoElDia;
     }
 
-    public String getFechaYHoraDeInicio() {
-        return fechaYHoraDeInicio;
+    public String getFecha() {
+        return fecha;
     }
 
-    public void setFechaYHoraDeInicio(String fechaYHoraDeInicio) {
-        this.fechaYHoraDeInicio = fechaYHoraDeInicio;
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 
-    public String getFechaYHoraDeFin() {
-        return fechaYHoraDeFin;
+    public String getHoraDeInicio() {
+        return horaDeInicio;
     }
 
-    public void setFechaYHoraDeFin(String fechaYHoraDeFin) {
-        this.fechaYHoraDeFin = fechaYHoraDeFin;
+    public void setHoraDeInicio(String horaDeInicio) {
+        this.horaDeInicio = horaDeInicio;
+    }
+
+    public String getHoraDeFin() {
+        return horaDeFin;
+    }
+
+    public void setHoraDeFin(String horaDeFin) {
+        this.horaDeFin = horaDeFin;
     }
 
     public double getLugarLatitud() {

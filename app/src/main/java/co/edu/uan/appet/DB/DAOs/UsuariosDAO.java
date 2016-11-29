@@ -8,9 +8,6 @@ import android.util.Log;
 import co.edu.uan.appet.DB.ApPetDB;
 import co.edu.uan.appet.DB.DTOs.UsuarioDTO;
 
-/**
- * Created by Luis Alberto on 08/10/2016.
- */
 public class UsuariosDAO {
 
     private static ApPetDB apPetDB;

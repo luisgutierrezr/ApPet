@@ -27,4 +27,9 @@ public class TipoDeEventoDTO {
     public void setTipoDeEvento(String tipoDeEvento) {
         this.tipoDeEvento = tipoDeEvento;
     }
+
+    @Override
+    public String toString() {
+        return tipoDeEvento;
+    }
 }

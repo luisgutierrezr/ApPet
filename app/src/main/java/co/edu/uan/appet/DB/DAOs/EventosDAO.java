@@ -22,8 +22,9 @@ public class EventosDAO {
     private static final String COLUMNA_TIPO = "TIPO";
     private static final String COLUMNA_ESTADO = "ESTADO";
     private static final String COLUMNA_TODO_EL_DIA = "TODO_EL_DIA";
-    private static final String COLUMNA_FECHA_Y_HORA_DE_INICIO = "FECHA_Y_HORA_DE_INICIO";
-    private static final String COLUMNA_FECHA_Y_HORA_DE_FIN = "FECHA_Y_HORA_DE_FIN";
+    private static final String COLUMNA_FECHA = "FECHA";
+    private static final String COLUMNA_HORA_DE_INICIO = "HORA_DE_INICIO";
+    private static final String COLUMNA_HORA_DE_FIN = "HORA_DE_FIN";
     private static final String COLUMNA_LUGAR_LATITUD = "LUGAR_LATITUD";
     private static final String COLUMNA_LUGAR_LONGITUD = "LUGAR_LONGITUD";
 
@@ -34,8 +35,9 @@ public class EventosDAO {
                     COLUMNA_TIPO + " INTEGER NOT NULL," +
                     COLUMNA_ESTADO + " INTEGER NOT NULL," +
                     COLUMNA_TODO_EL_DIA + " INTEGER NOT NULL," +
-                    COLUMNA_FECHA_Y_HORA_DE_INICIO + " STRING," +
-                    COLUMNA_FECHA_Y_HORA_DE_FIN + " STRING," +
+                    COLUMNA_FECHA + " STRING," +
+                    COLUMNA_HORA_DE_INICIO + " STRING," +
+                    COLUMNA_HORA_DE_FIN + " STRING," +
                     COLUMNA_LUGAR_LATITUD + " REAL," +
                     COLUMNA_LUGAR_LONGITUD + " REAL" +
                     ")";
@@ -78,12 +80,16 @@ public class EventosDAO {
         return COLUMNA_TODO_EL_DIA;
     }
 
-    public static String getColumnaFechaYHoraDeInicio() {
-        return COLUMNA_FECHA_Y_HORA_DE_INICIO;
+    public static String getColumnaFecha() {
+        return COLUMNA_FECHA;
     }
 
-    public static String getColumnaFechaYHoraDeFin() {
-        return COLUMNA_FECHA_Y_HORA_DE_FIN;
+    public static String getColumnaHoraDeInicio() {
+        return COLUMNA_HORA_DE_INICIO;
+    }
+
+    public static String getColumnaHoraDeFin() {
+        return COLUMNA_HORA_DE_FIN;
     }
 
     public static String getColumnaLugarLatitud() {
@@ -104,8 +110,9 @@ public class EventosDAO {
             contentValues.put(COLUMNA_TIPO, eventoDTO.getTipo());
             contentValues.put(COLUMNA_ESTADO, eventoDTO.getEstado());
             contentValues.put(COLUMNA_TODO_EL_DIA, eventoDTO.isTodoElDia() ? 1 : 0);
-            contentValues.put(COLUMNA_FECHA_Y_HORA_DE_INICIO, eventoDTO.getFechaYHoraDeInicio());
-            contentValues.put(COLUMNA_FECHA_Y_HORA_DE_FIN, eventoDTO.getFechaYHoraDeFin());
+            contentValues.put(COLUMNA_FECHA, eventoDTO.getFecha());
+            contentValues.put(COLUMNA_HORA_DE_INICIO, eventoDTO.getHoraDeInicio());
+            contentValues.put(COLUMNA_HORA_DE_FIN, eventoDTO.getHoraDeFin());
             contentValues.put(COLUMNA_LUGAR_LATITUD, eventoDTO.getLugarLatitud());
             contentValues.put(COLUMNA_LUGAR_LONGITUD, eventoDTO.getLugarLongitud());
             sqLiteDatabase.insertOrThrow(getNombreTabla(), null, contentValues);
@@ -129,8 +136,9 @@ public class EventosDAO {
                 eventoDTO.setTipo(cursor.getInt(cursor.getColumnIndex(COLUMNA_TIPO)));
                 eventoDTO.setEstado(cursor.getInt(cursor.getColumnIndex(COLUMNA_ESTADO)));
                 eventoDTO.setTodoElDia(cursor.getInt(cursor.getColumnIndex(COLUMNA_TODO_EL_DIA)) == 1);
-                eventoDTO.setFechaYHoraDeInicio(cursor.getString(cursor.getColumnIndex(COLUMNA_FECHA_Y_HORA_DE_INICIO)));
-                eventoDTO.setFechaYHoraDeFin(cursor.getString(cursor.getColumnIndex(COLUMNA_FECHA_Y_HORA_DE_FIN)));
+                eventoDTO.setFecha(cursor.getString(cursor.getColumnIndex(COLUMNA_FECHA)));
+                eventoDTO.setHoraDeInicio(cursor.getString(cursor.getColumnIndex(COLUMNA_HORA_DE_INICIO)));
+                eventoDTO.setHoraDeFin(cursor.getString(cursor.getColumnIndex(COLUMNA_HORA_DE_FIN)));
                 eventoDTO.setLugarLatitud(cursor.getDouble(cursor.getColumnIndex(COLUMNA_LUGAR_LATITUD)));
                 eventoDTO.setLugarLongitud(cursor.getDouble(cursor.getColumnIndex(COLUMNA_LUGAR_LONGITUD)));
             }
@@ -158,8 +166,9 @@ public class EventosDAO {
                     eventoDTO.setTipo(cursor.getInt(cursor.getColumnIndex(COLUMNA_TIPO)));
                     eventoDTO.setEstado(cursor.getInt(cursor.getColumnIndex(COLUMNA_ESTADO)));
                     eventoDTO.setTodoElDia(cursor.getInt(cursor.getColumnIndex(COLUMNA_TODO_EL_DIA)) == 1);
-                    eventoDTO.setFechaYHoraDeInicio(cursor.getString(cursor.getColumnIndex(COLUMNA_FECHA_Y_HORA_DE_INICIO)));
-                    eventoDTO.setFechaYHoraDeFin(cursor.getString(cursor.getColumnIndex(COLUMNA_FECHA_Y_HORA_DE_FIN)));
+                    eventoDTO.setFecha(cursor.getString(cursor.getColumnIndex(COLUMNA_FECHA)));
+                    eventoDTO.setHoraDeInicio(cursor.getString(cursor.getColumnIndex(COLUMNA_HORA_DE_INICIO)));
+                    eventoDTO.setHoraDeFin(cursor.getString(cursor.getColumnIndex(COLUMNA_HORA_DE_FIN)));
                     eventoDTO.setLugarLatitud(cursor.getDouble(cursor.getColumnIndex(COLUMNA_LUGAR_LATITUD)));
                     eventoDTO.setLugarLongitud(cursor.getDouble(cursor.getColumnIndex(COLUMNA_LUGAR_LONGITUD)));
                     eventoDTOs.add(eventoDTO);
@@ -184,8 +193,9 @@ public class EventosDAO {
             contentValues.put(COLUMNA_TIPO, eventoDTO.getTipo());
             contentValues.put(COLUMNA_ESTADO, eventoDTO.getEstado());
             contentValues.put(COLUMNA_TODO_EL_DIA, eventoDTO.isTodoElDia() ? 1 : 0);
-            contentValues.put(COLUMNA_FECHA_Y_HORA_DE_INICIO, eventoDTO.getFechaYHoraDeInicio());
-            contentValues.put(COLUMNA_FECHA_Y_HORA_DE_FIN, eventoDTO.getFechaYHoraDeFin());
+            contentValues.put(COLUMNA_FECHA, eventoDTO.getFecha());
+            contentValues.put(COLUMNA_HORA_DE_INICIO, eventoDTO.getHoraDeInicio());
+            contentValues.put(COLUMNA_HORA_DE_FIN, eventoDTO.getHoraDeFin());
             contentValues.put(COLUMNA_LUGAR_LATITUD, eventoDTO.getLugarLatitud());
             contentValues.put(COLUMNA_LUGAR_LONGITUD, eventoDTO.getLugarLongitud());
             sqLiteDatabase.update(getNombreTabla(), contentValues, COLUMNA_ID + "= ?", new String[]{String.valueOf(eventoDTO.getId())});

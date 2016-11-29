@@ -18,4 +18,5 @@
         android:layout_alignParentTop="true"
         android:text="Blog"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+
 </LinearLayout>

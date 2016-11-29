@@ -66,7 +66,6 @@ public class Mapa extends FragmentActivity implements OnMapReadyCallback, Google
 //        LatLng sydney = new LatLng(-34, 151);
 //        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
 //        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-
 //        LatLng uAntonioNarino = new LatLng(4.579242, -74.100938);
 //        mMap.addMarker(new MarkerOptions().position(uAntonioNarino).title("Universidad Antonio Nariño"));
 //        mMap.moveCamera(CameraUpdateFactory.newLatLng(uAntonioNarino));
@@ -79,7 +78,6 @@ public class Mapa extends FragmentActivity implements OnMapReadyCallback, Google
         Log.i("ApPet", "onConnected");
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             Log.i("ApPet", "No permissions");
-            return;
         } else {
             mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
             if (mLastLocation != null) {
@@ -104,9 +102,9 @@ public class Mapa extends FragmentActivity implements OnMapReadyCallback, Google
 
     private void ubicarPosicionActual() {
         if (mMap != null && mLastLocation != null) {
-            LatLng uAntonioNarino = new LatLng(mLastLocation.getLatitude(), mLastLocation.getLongitude());
-            mMap.addMarker(new MarkerOptions().position(uAntonioNarino).title("Universidad Antonio Nariño"));
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(uAntonioNarino));
+            LatLng uUbicacionActual = new LatLng(mLastLocation.getLatitude(), mLastLocation.getLongitude());
+            mMap.addMarker(new MarkerOptions().position(uUbicacionActual).title("Ubicacion actual"));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(uUbicacionActual));
             mMap.moveCamera(CameraUpdateFactory.zoomTo(18));
         } else {
             Log.i("ApPet", "No location detected");

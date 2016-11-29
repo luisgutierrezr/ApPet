@@ -107,4 +107,5 @@ public class ConsecutivosDAO {
             sqLiteDatabase.endTransaction();
         }
     }
+
 }

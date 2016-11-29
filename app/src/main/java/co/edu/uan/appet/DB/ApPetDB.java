@@ -188,25 +188,25 @@ public class ApPetDB extends SQLiteOpenHelper {
 
     private void agregarEventosTest() {
         EventosDAO eventosDAO = EventosDAO.getInstance();
-        eventosDAO.addEvento(new EventoDTO(1, "Evento a", 1, 1, false, "19-11-2016 16:00", "19-11-2016 17:00", -74.0001, 4.0001));
-        eventosDAO.addEvento(new EventoDTO(2, "Evento b", 1, 1, false, "19-11-2016 16:00", "19-11-2016 17:00", -74.0001, 4.0001));
-        eventosDAO.addEvento(new EventoDTO(3, "Evento c", 1, 1, false, "19-11-2016 16:00", "19-11-2016 17:00", -74.0001, 4.0001));
-        eventosDAO.addEvento(new EventoDTO(4, "Evento d", 1, 1, false, "19-11-2016 16:00", "19-11-2016 17:00", -74.0001, 4.0001));
-        eventosDAO.addEvento(new EventoDTO(5, "Evento e", 1, 1, false, "19-11-2016 16:00", "19-11-2016 17:00", -74.0001, 4.0001));
-        eventosDAO.addEvento(new EventoDTO(6, "Evento f", 1, 1, false, "19-11-2016 16:00", "19-11-2016 17:00", -74.0001, 4.0001));
-        eventosDAO.addEvento(new EventoDTO(7, "Evento g", 1, 1, false, "19-11-2016 16:00", "19-11-2016 17:00", -74.0001, 4.0001));
-        eventosDAO.addEvento(new EventoDTO(8, "Evento h", 1, 1, false, "19-11-2016 16:00", "19-11-2016 17:00", -74.0001, 4.0001));
-        eventosDAO.addEvento(new EventoDTO(9, "Evento i", 1, 1, false, "19-11-2016 16:00", "19-11-2016 17:00", -74.0001, 4.0001));
-        eventosDAO.addEvento(new EventoDTO(10, "Evento j", 1, 1, false, "19-11-2016 16:00", "19-11-2016 17:00", -74.0001, 4.0001));
-        eventosDAO.addEvento(new EventoDTO(11, "Evento k", 1, 1, false, "19-11-2016 16:00", "19-11-2016 17:00", -74.0001, 4.0001));
-        eventosDAO.addEvento(new EventoDTO(12, "Evento l", 1, 1, false, "19-11-2016 16:00", "19-11-2016 17:00", -74.0001, 4.0001));
-        eventosDAO.addEvento(new EventoDTO(13, "Evento m", 1, 1, false, "19-11-2016 16:00", "19-11-2016 17:00", -74.0001, 4.0001));
-        eventosDAO.addEvento(new EventoDTO(14, "Evento n", 1, 1, false, "19-11-2016 16:00", "19-11-2016 17:00", -74.0001, 4.0001));
-        eventosDAO.addEvento(new EventoDTO(15, "Evento o", 1, 1, false, "19-11-2016 16:00", "19-11-2016 17:00", -74.0001, 4.0001));
-        eventosDAO.addEvento(new EventoDTO(16, "Evento p", 1, 1, false, "19-11-2016 16:00", "19-11-2016 17:00", -74.0001, 4.0001));
-        eventosDAO.addEvento(new EventoDTO(17, "Evento q", 1, 1, false, "19-11-2016 16:00", "19-11-2016 17:00", -74.0001, 4.0001));
-        eventosDAO.addEvento(new EventoDTO(18, "Evento r", 1, 1, false, "19-11-2016 16:00", "19-11-2016 17:00", -74.0001, 4.0001));
-        eventosDAO.addEvento(new EventoDTO(19, "Evento s", 1, 1, false, "19-11-2016 16:00", "19-11-2016 17:00", -74.0001, 4.0001));
+        eventosDAO.addEvento(new EventoDTO(1, "Evento a", 1, 1, false, "19-11-2016", "16:00", "17:00", -74.0001, 4.0001));
+        eventosDAO.addEvento(new EventoDTO(2, "Evento b", 1, 1, false, "19-11-2016", "16:00", "17:00", -74.0001, 4.0001));
+        eventosDAO.addEvento(new EventoDTO(3, "Evento c", 1, 1, false, "19-11-2016", "16:00", "17:00", -74.0001, 4.0001));
+        eventosDAO.addEvento(new EventoDTO(4, "Evento d", 1, 1, false, "19-11-2016", "16:00", "17:00", -74.0001, 4.0001));
+        eventosDAO.addEvento(new EventoDTO(5, "Evento e", 1, 1, false, "19-11-2016", "16:00", "17:00", -74.0001, 4.0001));
+        eventosDAO.addEvento(new EventoDTO(6, "Evento f", 1, 1, false, "19-11-2016", "16:00", "17:00", -74.0001, 4.0001));
+        eventosDAO.addEvento(new EventoDTO(7, "Evento g", 1, 1, false, "19-11-2016", "16:00", "17:00", -74.0001, 4.0001));
+        eventosDAO.addEvento(new EventoDTO(8, "Evento h", 1, 1, false, "19-11-2016", "16:00", "17:00", -74.0001, 4.0001));
+        eventosDAO.addEvento(new EventoDTO(9, "Evento i", 1, 1, false, "19-11-2016", "16:00", "17:00", -74.0001, 4.0001));
+        eventosDAO.addEvento(new EventoDTO(10, "Evento j", 1, 1, false, "19-11-2016", "16:00", "17:00", -74.0001, 4.0001));
+        eventosDAO.addEvento(new EventoDTO(11, "Evento k", 1, 1, false, "19-11-2016", "16:00", "17:00", -74.0001, 4.0001));
+        eventosDAO.addEvento(new EventoDTO(12, "Evento l", 1, 1, false, "19-11-2016", "16:00", "17:00", -74.0001, 4.0001));
+        eventosDAO.addEvento(new EventoDTO(13, "Evento m", 1, 1, false, "19-11-2016", "16:00", "17:00", -74.0001, 4.0001));
+        eventosDAO.addEvento(new EventoDTO(14, "Evento n", 1, 1, false, "19-11-2016", "16:00", "17:00", -74.0001, 4.0001));
+        eventosDAO.addEvento(new EventoDTO(15, "Evento o", 1, 1, false, "19-11-2016", "16:00", "17:00", -74.0001, 4.0001));
+        eventosDAO.addEvento(new EventoDTO(16, "Evento p", 1, 1, false, "19-11-2016", "16:00", "17:00", -74.0001, 4.0001));
+        eventosDAO.addEvento(new EventoDTO(17, "Evento q", 1, 1, false, "19-11-2016", "16:00", "17:00", -74.0001, 4.0001));
+        eventosDAO.addEvento(new EventoDTO(18, "Evento r", 1, 1, false, "19-11-2016", "16:00", "17:00", -74.0001, 4.0001));
+        eventosDAO.addEvento(new EventoDTO(19, "Evento s", 1, 1, false, "19-11-2016", "16:00", "17:00", -74.0001, 4.0001));
     }
 
     private void test() {
